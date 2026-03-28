@@ -53,8 +53,8 @@ function mapStatus(raw?: string): ItemStatus {
 
 function parseRating(raw?: string): number | undefined {
   if (!raw?.trim()) return undefined
-  // Count star characters (★ or ✦)
-  const starCount = (raw.match(/[★✦⭐]/g) ?? []).length
+  // Count star characters — handles ★ ✦ ⭐ and the ⭐️ emoji variant
+  const starCount = (raw.match(/⭐️|[★✦⭐]/g) ?? []).length
   if (starCount > 0) return Math.min(starCount, 6)
   // Try numeric
   const n = parseFloat(raw.trim())
@@ -64,13 +64,39 @@ function parseRating(raw?: string): number | undefined {
 
 function parseDate(raw?: string): string | undefined {
   if (!raw?.trim()) return undefined
-  // Already ISO format
-  if (/^\d{4}-\d{2}-\d{2}/.test(raw)) return raw.slice(0, 10)
-  // "Month Day, Year" e.g. "March 11, 2025"
-  const d = new Date(raw.trim())
-  if (!isNaN(d.getTime())) {
-    return d.toISOString().slice(0, 10)
+  const s = raw.trim()
+
+  // Already ISO format YYYY-MM-DD
+  if (/^\d{4}-\d{2}-\d{2}/.test(s)) return s.slice(0, 10)
+
+  // M/D, M/D/YY, or M/D/YYYY (Notion's short date export)
+  const mdMatch = s.match(/^(\d{1,2})\/(\d{1,2})(?:\/(\d{2,4}))?$/)
+  if (mdMatch) {
+    const month = parseInt(mdMatch[1])
+    const day   = parseInt(mdMatch[2])
+    let year: number
+
+    if (mdMatch[3]) {
+      year = parseInt(mdMatch[3])
+      if (year < 100) year += 2000
+    } else {
+      // No year provided — pick the most recent past date with this M/D.
+      // If the date with the current year is more than 7 days in the future,
+      // assume it was last year.
+      const now = new Date()
+      const candidate = new Date(now.getFullYear(), month - 1, day)
+      const sevenDaysOut = new Date(now.getTime() + 7 * 86_400_000)
+      year = candidate > sevenDaysOut ? now.getFullYear() - 1 : now.getFullYear()
+    }
+
+    const d = new Date(year, month - 1, day)
+    if (!isNaN(d.getTime())) return d.toISOString().slice(0, 10)
   }
+
+  // "Month Day, Year" — e.g. "March 11, 2025"
+  const d = new Date(s)
+  if (!isNaN(d.getTime())) return d.toISOString().slice(0, 10)
+
   return undefined
 }
 

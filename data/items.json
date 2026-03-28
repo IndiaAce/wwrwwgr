@@ -1,1 +1,255 @@
-[]
+[
+  {
+    "type": "film",
+    "title": "Shoot the piano player (FR)",
+    "status": "tbr",
+    "platform": "Plex",
+    "id": "3a26ceea-a2a9-44c2-b5b5-9506e3f9d7cd"
+  },
+  {
+    "type": "tv",
+    "title": "Tales from the loop",
+    "status": "tbr",
+    "platform": "Plex",
+    "id": "e7d93369-d302-4ce2-a0b3-60d327b5af91"
+  },
+  {
+    "type": "book",
+    "title": "Murder in the Marais",
+    "status": "tbr",
+    "creator": "Cara Black",
+    "id": "b29df8fb-de81-4b84-8c55-7b8cab28d38f"
+  },
+  {
+    "type": "book",
+    "title": "A Clash of Kings (Please let TWOW come out soon)",
+    "status": "finished",
+    "creator": "George RR Martin",
+    "rating": 6,
+    "dateStarted": "2025-12-25",
+    "dateEnded": "2026-01-15",
+    "thoughts": "God I love these books. for the love of god let TWOW come out soon.",
+    "id": "eb87719e-d042-4272-8a72-95bd48554700"
+  },
+  {
+    "type": "book",
+    "title": "Techno-Feudalism: What Killed Capitalism",
+    "status": "tbr",
+    "creator": "Yanis Varoufakis",
+    "id": "237674a5-838f-4623-8404-3840fc08eae3"
+  },
+  {
+    "type": "tv",
+    "title": "Stranger Things S5 Pt. 2",
+    "status": "finished",
+    "platform": "Netflix",
+    "rating": 2,
+    "dateStarted": "2025-12-25",
+    "dateEnded": "2025-12-26",
+    "thoughts": "Eesh… so much of this section felt unnecessary. Like the stakes are too high, and the characters too many, for this to be able to be cohesive at all. The will coming out scene and the Nancy/Jonathan un-proposal were the only redeeming bits imo.",
+    "id": "2ed35f07-a8e9-4726-bdbe-4d40663a82d1"
+  },
+  {
+    "type": "tv",
+    "title": "Stranger Things S5 Pt. 1",
+    "status": "finished",
+    "platform": "Netflix",
+    "rating": 4,
+    "thoughts": "I knew they couldn’t pull it off so I lowered my expectations by quite a bit and that seemed to help. It’s just nice to be back.",
+    "id": "87f80103-b154-4f8a-9f83-0c55b1c73257"
+  },
+  {
+    "type": "tv",
+    "title": "Stranger Things S5 Pt. 3",
+    "status": "finished",
+    "platform": "Netflix",
+    "rating": 3,
+    "dateStarted": "2025-12-31",
+    "dateEnded": "2025-12-31",
+    "thoughts": "I don’t like the direction this show went in, I won’t deny it. But for the direction they went in, I liked the ending. It was fun, and the epilogue was sweet. Not every ending has to be bittersweet, sometimes it can just be nice.",
+    "id": "25aabcc5-a5bc-4ef1-9aad-7c6440536f0a"
+  },
+  {
+    "type": "book",
+    "title": "A Gentleman In Moscow",
+    "status": "tbr",
+    "creator": "Amor Towles",
+    "id": "4af11677-e49b-4a2e-876c-790ff1c84e61"
+  },
+  {
+    "type": "book",
+    "title": "A Storm of Swords (Please let TWOW come out soon)",
+    "status": "finished",
+    "creator": "George RR Martin",
+    "rating": 6,
+    "dateStarted": "2026-01-15",
+    "dateEnded": "2026-02-19",
+    "id": "8f24fbbe-4afa-4f1b-a003-5e09e631cece"
+  },
+  {
+    "type": "film",
+    "title": "The Fellowship of The Rings",
+    "status": "finished",
+    "platform": "Plex",
+    "rating": 4,
+    "dateStarted": "2026-01-02",
+    "dateEnded": "2026-01-02",
+    "thoughts": "So many people told me this was the perfect movie that I worried I wasn’t going to like it. But I’m surprised. It was a great fantasy romp. A little cringe in places, but the visuals are stunning! That’s what happens when even an old film is made without CGI slop.",
+    "id": "84c82720-b586-44f1-be24-f348f9110e47"
+  },
+  {
+    "type": "book",
+    "title": "Elanor Olaphant is Complete Fine",
+    "status": "dnf",
+    "creator": "Lee Vinsel",
+    "dateStarted": "2025-12-01",
+    "dateEnded": "2026-01-19",
+    "thoughts": "DNF roughly 30% in - eh… just not enough into it… we’ll never know if she was completely fine or not. I found her too unlikable for my current mood to finish.",
+    "id": "636d99d7-25c5-4c8d-aee7-065d9f883018"
+  },
+  {
+    "type": "film",
+    "title": "No Other Choice",
+    "status": "tbr",
+    "platform": "Plex",
+    "id": "4aa766da-f35e-4a8f-aee7-b2a834ea87fe"
+  },
+  {
+    "type": "film",
+    "title": "Sentimental Value",
+    "status": "finished",
+    "platform": "Plex",
+    "rating": 5,
+    "dateStarted": "2026-01-18",
+    "dateEnded": "2026-01-18",
+    "thoughts": "This movie is such a vibe, I was really just digging the Norway feel and the house and the characters. And then suddenly in the last 20 minutes I was crying the entire time. Beautiful story and so well told.",
+    "id": "a2e0d71c-129d-4fae-8750-75c3aeacf413"
+  },
+  {
+    "type": "film",
+    "title": "Blue Moon",
+    "status": "tbr",
+    "platform": "Plex",
+    "id": "9977c9b3-7cfe-438d-afea-762d62718963"
+  },
+  {
+    "type": "film",
+    "title": "Jay Kelly",
+    "status": "tbr",
+    "platform": "Apple TV",
+    "id": "4253238e-584a-46a1-a9fd-b0af87757824"
+  },
+  {
+    "type": "book",
+    "title": "A Feast for Crows (Please let TWOW come out soon)",
+    "status": "tbr",
+    "creator": "George RR Martin",
+    "id": "2217964a-0c9e-4650-9685-82edc3ce278d"
+  },
+  {
+    "type": "film",
+    "title": "The Handmaiden",
+    "status": "tbr",
+    "platform": "Plex",
+    "id": "522b77a5-8c34-4def-88ad-7e3626fe63f2"
+  },
+  {
+    "type": "book",
+    "title": "Enshitification",
+    "status": "dnf",
+    "creator": "Cory Doctorow",
+    "dateStarted": "2026-01-24",
+    "dateEnded": "2026-03-13",
+    "thoughts": "Just ran out of time… that’s on me.",
+    "id": "a06f1bd3-3ee5-4c6b-9f37-50bdf2c3e4f9"
+  },
+  {
+    "type": "tv",
+    "title": "A Knight of The Seven Kingdoms",
+    "status": "finished",
+    "platform": "Plex",
+    "rating": 5,
+    "dateStarted": "2026-01-24",
+    "dateEnded": "2026-03-01",
+    "thoughts": "This was delightful, really! A proper “feel-good” type of show. And it’s amazing to be back in the 7 (8) kingdoms",
+    "id": "e6ddcb5a-e992-4dbc-b2a0-60a9b4918510"
+  },
+  {
+    "type": "tv",
+    "title": "Euphoria S1",
+    "status": "finished",
+    "platform": "Plex",
+    "rating": 4,
+    "dateStarted": "2026-01-23",
+    "dateEnded": "2026-02-16",
+    "id": "f82d5217-f324-49c6-ae6d-9955c96b534c"
+  },
+  {
+    "type": "tv",
+    "title": "Euphoria S2",
+    "status": "watching",
+    "platform": "Plex",
+    "dateStarted": "2026-03-11",
+    "id": "882846d8-bdac-45a3-b361-83e0ff8b04fe"
+  },
+  {
+    "type": "book",
+    "title": "His Black Tongue",
+    "status": "tbr",
+    "creator": "Mitchell Luthi",
+    "id": "138a16ea-897b-40fb-a6d0-e4eaa757c63d"
+  },
+  {
+    "type": "book",
+    "title": "Between Two Fires",
+    "status": "reading",
+    "creator": "Christopher Buehlman",
+    "dateStarted": "2026-02-19",
+    "id": "fd792540-0011-42f9-9d1e-eafd1fc623d3"
+  },
+  {
+    "type": "book",
+    "title": "Lapvona",
+    "status": "tbr",
+    "creator": "Ottessa Moshfegh",
+    "id": "73df2e0f-964b-409e-b7c8-cb60d121452b"
+  },
+  {
+    "type": "book",
+    "title": "Ready Player One",
+    "status": "finished",
+    "creator": "Ernest Cline",
+    "rating": 5,
+    "dateStarted": "2026-02-28",
+    "dateEnded": "2026-03-07",
+    "thoughts": "Such a good comfort book. Was an another amazing audiobook to listen to while traveling.",
+    "id": "bb8137db-7c4e-4b5a-b898-390afa852067"
+  },
+  {
+    "type": "book",
+    "title": "Project Hail Mary",
+    "status": "finished",
+    "creator": "Andy Weir",
+    "rating": 5,
+    "dateStarted": "2026-02-08",
+    "dateEnded": "2026-02-15",
+    "thoughts": "Such a good feeling book! Was nice to read (listen) to this again during some long drives. Amazing book.",
+    "id": "f5e79b80-d286-426e-88c4-6fc1bd8418bc"
+  },
+  {
+    "type": "book",
+    "title": "The Correspondent",
+    "status": "reading",
+    "creator": "Virginia Evans",
+    "dateStarted": "2026-03-21",
+    "id": "659a0e4a-7e62-420b-9848-dc9cd1cf9ee0"
+  },
+  {
+    "type": "book",
+    "title": "Hatching Twitter",
+    "status": "reading",
+    "creator": "Nick Bilton",
+    "dateStarted": "2026-03-21",
+    "id": "539e7250-5f2d-4e32-b5be-20da60bfe11a"
+  }
+]

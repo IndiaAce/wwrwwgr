@@ -1,21 +1,23 @@
 'use client'
 
 import { useState, useEffect, useCallback } from 'react'
-import { RotateCw, Upload, Plus, Play, List, CheckCheck } from 'lucide-react'
+import { RotateCw, Upload, Plus, Play, List, CheckCheck, BarChart2 } from 'lucide-react'
 import { Item } from '@/types'
 import BottomNav from '@/components/BottomNav'
 import NowSection from '@/components/NowSection'
 import OnDeckSection from '@/components/OnDeckSection'
 import FinishedSection from '@/components/FinishedSection'
+import StatsSection from '@/components/StatsSection'
 import AddEditModal from '@/components/AddEditModal'
 import ImportModal from '@/components/ImportModal'
 
-type Tab = 'now' | 'onDeck' | 'finished'
+type Tab = 'now' | 'onDeck' | 'finished' | 'stats'
 
 const TABS: { id: Tab; label: string; Icon: React.ElementType }[] = [
   { id: 'now',      label: 'Now',     Icon: Play },
   { id: 'onDeck',   label: 'On Deck', Icon: List },
   { id: 'finished', label: 'Done',    Icon: CheckCheck },
+  { id: 'stats',    label: 'Stats',   Icon: BarChart2 },
 ]
 
 export default function Home() {
@@ -63,10 +65,9 @@ export default function Home() {
 
   return (
     <main className="min-h-dvh bg-bg text-ink">
-      {/* ── Header ─────────────────────────────────────────────────────── */}
+      {/* ── Header ─────────────────────────────────────────────────── */}
       <header className="sticky top-0 z-10 bg-bg/90 backdrop-blur-md border-b border-border/50">
         <div className="max-w-6xl mx-auto px-5 md:px-8 flex items-center justify-between py-4">
-          {/* Logo */}
           <div>
             <h1 className="font-serif text-2xl text-accent tracking-tight leading-none">WWRWWGR</h1>
             <p className="text-[10px] text-ink-faint uppercase tracking-widest mt-0.5 hidden sm:block">
@@ -74,48 +75,36 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Desktop tab nav */}
+          {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-1 bg-card rounded-xl p-1">
             {TABS.map(({ id, label, Icon }) => (
               <button
                 key={id}
                 onClick={() => setActiveTab(id)}
                 className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all ${
-                  activeTab === id
-                    ? 'bg-surface text-accent shadow-sm'
-                    : 'text-ink-muted hover:text-ink'
+                  activeTab === id ? 'bg-surface text-accent shadow-sm' : 'text-ink-muted hover:text-ink'
                 }`}
               >
                 <Icon size={14} strokeWidth={activeTab === id ? 2.5 : 1.8} />
                 {label}
-                {counts[id] > 0 && (
+                {id !== 'stats' && counts[id as keyof typeof counts] > 0 && (
                   <span className={`text-[11px] px-1.5 py-0.5 rounded-full font-bold leading-none ${
                     activeTab === id ? 'bg-accent text-white' : 'bg-border text-ink-muted'
                   }`}>
-                    {counts[id]}
+                    {counts[id as keyof typeof counts]}
                   </span>
                 )}
               </button>
             ))}
           </nav>
 
-          {/* Actions */}
           <div className="flex items-center gap-2">
-            <button
-              onClick={() => setIsImportOpen(true)}
-              className="text-ink-muted hover:text-ink transition-colors p-2 rounded-lg hover:bg-card"
-              title="Import from Notion"
-            >
+            <button onClick={() => setIsImportOpen(true)} className="text-ink-muted hover:text-ink transition-colors p-2 rounded-lg hover:bg-card" title="Import from Notion">
               <Upload size={17} />
             </button>
-            <button
-              onClick={fetchItems}
-              className="text-ink-muted hover:text-ink transition-colors p-2 rounded-lg hover:bg-card"
-              title="Refresh"
-            >
+            <button onClick={fetchItems} className="text-ink-muted hover:text-ink transition-colors p-2 rounded-lg hover:bg-card" title="Refresh">
               <RotateCw size={17} />
             </button>
-            {/* Desktop add button */}
             <button
               onClick={openAdd}
               className="hidden md:flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-medium text-white transition-all hover:brightness-110 active:scale-95"
@@ -128,14 +117,14 @@ export default function Home() {
         </div>
       </header>
 
-      {/* ── Content ────────────────────────────────────────────────────── */}
+      {/* ── Content ────────────────────────────────────────────────── */}
       <div className="max-w-6xl mx-auto pb-28 md:pb-10 md:px-4 lg:px-8">
         {activeTab === 'now'      && <NowSection      items={nowItems}      loading={loading} onEdit={openEdit} />}
         {activeTab === 'onDeck'   && <OnDeckSection   items={deckItems}     loading={loading} onEdit={openEdit} />}
         {activeTab === 'finished' && <FinishedSection items={finishedItems} loading={loading} onEdit={openEdit} />}
+        {activeTab === 'stats'    && <StatsSection    items={items}         loading={loading} onEdit={openEdit} />}
       </div>
 
-      {/* Mobile bottom nav only */}
       <div className="md:hidden">
         <BottomNav activeTab={activeTab} onTabChange={setActiveTab} counts={counts} onAdd={openAdd} />
       </div>

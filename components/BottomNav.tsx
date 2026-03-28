@@ -1,8 +1,8 @@
 'use client'
 
-import { Play, List, CheckCheck, Plus } from 'lucide-react'
+import { Play, List, CheckCheck, Plus, BarChart2 } from 'lucide-react'
 
-type Tab = 'now' | 'onDeck' | 'finished'
+type Tab = 'now' | 'onDeck' | 'finished' | 'stats'
 
 interface BottomNavProps {
   activeTab: Tab
@@ -11,25 +11,12 @@ interface BottomNavProps {
   onAdd: () => void
 }
 
-const tabs: { id: Tab; label: string; Icon: React.ElementType }[] = [
-  { id: 'now',      label: 'Now',     Icon: Play },
-  { id: 'onDeck',   label: 'On Deck', Icon: List },
-  { id: 'finished', label: 'Done',    Icon: CheckCheck },
-]
-
 export default function BottomNav({ activeTab, onTabChange, counts, onAdd }: BottomNavProps) {
   return (
     <nav className="fixed bottom-0 left-0 right-0 z-20 bg-surface/95 border-t border-border backdrop-blur-md">
       <div className="max-w-lg mx-auto flex items-center">
-        {tabs.slice(0, 2).map(tab => (
-          <TabButton
-            key={tab.id}
-            tab={tab}
-            active={activeTab === tab.id}
-            count={counts[tab.id]}
-            onClick={() => onTabChange(tab.id)}
-          />
-        ))}
+        <TabButton id="now"      label="Now"     Icon={Play}      active={activeTab === 'now'}      count={counts.now}      onClick={() => onTabChange('now')} />
+        <TabButton id="onDeck"   label="On Deck" Icon={List}      active={activeTab === 'onDeck'}   count={counts.onDeck}   onClick={() => onTabChange('onDeck')} />
 
         {/* Centre FAB */}
         <div className="flex-1 flex justify-center">
@@ -43,46 +30,26 @@ export default function BottomNav({ activeTab, onTabChange, counts, onAdd }: Bot
           </button>
         </div>
 
-        <TabButton
-          tab={tabs[2]}
-          active={activeTab === tabs[2].id}
-          count={counts[tabs[2].id]}
-          onClick={() => onTabChange(tabs[2].id)}
-        />
-
-        <div className="flex-1" />
+        <TabButton id="finished" label="Done"    Icon={CheckCheck} active={activeTab === 'finished'} count={counts.finished} onClick={() => onTabChange('finished')} />
+        <TabButton id="stats"    label="Stats"   Icon={BarChart2}  active={activeTab === 'stats'}    onClick={() => onTabChange('stats')} />
       </div>
     </nav>
   )
 }
 
-function TabButton({
-  tab,
-  active,
-  count,
-  onClick,
-}: {
-  tab: { id: Tab; label: string; Icon: React.ElementType }
-  active: boolean
-  count: number
-  onClick: () => void
+function TabButton({ id, label, Icon, active, count, onClick }: {
+  id: string; label: string; Icon: React.ElementType
+  active: boolean; count?: number; onClick: () => void
 }) {
-  const { Icon } = tab
   return (
     <button
       onClick={onClick}
-      className={`flex-1 flex flex-col items-center gap-0.5 py-3 transition-colors ${
-        active ? 'text-accent' : 'text-ink-muted'
-      }`}
+      className={`flex-1 flex flex-col items-center gap-0.5 py-3 transition-colors ${active ? 'text-accent' : 'text-ink-muted'}`}
     >
       <Icon size={20} strokeWidth={active ? 2.5 : 1.8} />
-      <span className="text-[10px] font-medium uppercase tracking-wider">{tab.label}</span>
-      {count > 0 && (
-        <span
-          className={`text-[9px] font-bold px-1.5 py-0.5 rounded-full leading-none ${
-            active ? 'bg-accent text-white' : 'bg-ink-faint text-ink-muted'
-          }`}
-        >
+      <span className="text-[10px] font-medium uppercase tracking-wider">{label}</span>
+      {count !== undefined && count > 0 && (
+        <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded-full leading-none ${active ? 'bg-accent text-white' : 'bg-ink-faint text-ink-muted'}`}>
           {count}
         </span>
       )}

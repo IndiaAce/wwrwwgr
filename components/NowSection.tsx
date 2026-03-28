@@ -1,5 +1,6 @@
 'use client'
 
+import { Play } from 'lucide-react'
 import { Item } from '@/types'
 import CoverImage from './CoverImage'
 import StarRating from './StarRating'
@@ -37,7 +38,7 @@ export default function NowSection({ items, loading, onEdit }: NowSectionProps) 
   if (items.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center px-8 py-24 text-center gap-3">
-        <span className="text-5xl opacity-30">▶</span>
+        <Play size={48} className="opacity-20 text-ink" />
         <p className="text-ink-muted text-sm">Nothing in progress.</p>
         <p className="text-ink-faint text-xs">Tap + to start something.</p>
       </div>
@@ -78,22 +79,18 @@ function NowCard({ item, onEdit }: { item: Item; onEdit: (item: Item) => void })
         </>
       )}
 
-      {/* Fallback background */}
       {!item.coverUrl && (
         <div className="absolute inset-0 bg-gradient-to-br from-surface to-card" />
       )}
 
       {/* Content */}
       <div className="relative flex gap-4 p-4">
-        {/* Cover art */}
         <div className="relative shrink-0 rounded-lg overflow-hidden shadow-2xl" style={{ width: 90, height: 135 }}>
           <CoverImage item={item} fill className="rounded-lg" />
         </div>
 
-        {/* Info */}
         <div className="flex flex-col justify-between py-1 flex-1 min-w-0">
           <div>
-            {/* Status badge */}
             <span
               className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full mb-2"
               style={{ background: `${statusColor}22`, color: statusColor }}
@@ -107,29 +104,21 @@ function NowCard({ item, onEdit }: { item: Item; onEdit: (item: Item) => void })
             </h2>
 
             {item.creator && (
-              <p className="text-ink-muted text-sm mt-0.5 truncate">
-                {item.creator}
-              </p>
+              <p className="text-ink-muted text-sm mt-0.5 truncate">{item.creator}</p>
             )}
 
             {item.platform && !item.creator && (
-              <p className="text-ink-muted text-sm mt-0.5 truncate">
-                {item.platform}
-              </p>
+              <p className="text-ink-muted text-sm mt-0.5 truncate">{item.platform}</p>
             )}
 
             {item.platform && item.creator && (
-              <p className="text-ink-faint text-xs mt-0.5 truncate">
-                {item.platform}
-              </p>
+              <p className="text-ink-faint text-xs mt-0.5 truncate">{item.platform}</p>
             )}
           </div>
 
           <div className="flex items-center justify-between mt-2">
             {item.dateStarted && (
-              <span className="text-ink-muted text-xs">
-                {daysSince(item.dateStarted)}
-              </span>
+              <span className="text-ink-muted text-xs">{daysSince(item.dateStarted)}</span>
             )}
             {item.rating && <StarRating value={item.rating} readonly size="sm" />}
           </div>

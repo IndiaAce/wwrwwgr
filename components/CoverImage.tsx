@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import { BookOpen, Clapperboard, Tv } from 'lucide-react'
 import { Item } from '@/types'
 
 interface CoverImageProps {
@@ -11,14 +12,20 @@ interface CoverImageProps {
   height?: number
 }
 
-const TYPE_ICONS = { book: '📚', film: '🎬', tv: '📺' }
+const TYPE_ICONS = {
+  book: BookOpen,
+  film: Clapperboard,
+  tv: Tv,
+}
+
 const TYPE_BG = {
-  book: 'from-amber-900 to-amber-800',
-  film: 'from-slate-800 to-slate-700',
-  tv: 'from-violet-900 to-violet-800',
+  book:  'from-amber-900  to-amber-800',
+  film:  'from-slate-800  to-slate-700',
+  tv:    'from-violet-900 to-violet-800',
 }
 
 export default function CoverImage({ item, className = '', fill, width, height }: CoverImageProps) {
+  const Icon = TYPE_ICONS[item.type]
   const initials = item.title
     .split(' ')
     .slice(0, 2)
@@ -31,8 +38,8 @@ export default function CoverImage({ item, className = '', fill, width, height }
         className={`bg-gradient-to-br ${TYPE_BG[item.type]} flex flex-col items-center justify-center gap-2 ${className}`}
         style={fill ? undefined : { width, height }}
       >
-        <span className="text-3xl opacity-60">{TYPE_ICONS[item.type]}</span>
-        <span className="text-sm font-serif font-bold text-white/70 text-center px-2 leading-tight">
+        <Icon size={28} className="opacity-50 text-white" />
+        <span className="text-sm font-serif font-bold text-white/60 text-center px-2 leading-tight">
           {initials}
         </span>
       </div>

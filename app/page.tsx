@@ -1,12 +1,14 @@
 'use client'
 
 import { useState, useEffect, useCallback } from 'react'
+import { RotateCw, Upload } from 'lucide-react'
 import { Item } from '@/types'
 import BottomNav from '@/components/BottomNav'
 import NowSection from '@/components/NowSection'
 import OnDeckSection from '@/components/OnDeckSection'
 import FinishedSection from '@/components/FinishedSection'
 import AddEditModal from '@/components/AddEditModal'
+import ImportModal from '@/components/ImportModal'
 
 type Tab = 'now' | 'onDeck' | 'finished'
 
@@ -14,6 +16,7 @@ export default function Home() {
   const [items, setItems] = useState<Item[]>([])
   const [activeTab, setActiveTab] = useState<Tab>('now')
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isImportOpen, setIsImportOpen] = useState(false)
   const [editingItem, setEditingItem] = useState<Item | null>(null)
   const [loading, setLoading] = useState(true)
 
@@ -87,13 +90,23 @@ export default function Home() {
               What We&apos;re Reading, What We&apos;re Gonna Read
             </p>
           </div>
-          <button
-            onClick={fetchItems}
-            className="text-ink-muted text-lg active:rotate-180 transition-transform duration-300"
-            aria-label="Refresh"
-          >
-            ↻
-          </button>
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => setIsImportOpen(true)}
+              className="text-ink-muted hover:text-ink transition-colors"
+              aria-label="Import from Notion"
+              title="Import from Notion CSV"
+            >
+              <Upload size={18} />
+            </button>
+            <button
+              onClick={fetchItems}
+              className="text-ink-muted hover:text-ink transition-colors active:rotate-180 transition-transform duration-300"
+              aria-label="Refresh"
+            >
+              <RotateCw size={18} />
+            </button>
+          </div>
         </div>
       </header>
 
@@ -121,6 +134,14 @@ export default function Home() {
         }}
         onAdd={openAdd}
       />
+
+      {/* Import Modal */}
+      {isImportOpen && (
+        <ImportModal
+          onClose={() => setIsImportOpen(false)}
+          onImported={fetchItems}
+        />
+      )}
 
       {/* Add / Edit Modal */}
       {isModalOpen && (

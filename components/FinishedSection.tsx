@@ -1,5 +1,6 @@
 'use client'
 
+import { CheckCheck } from 'lucide-react'
 import { Item } from '@/types'
 import CoverImage from './CoverImage'
 import StarRating from './StarRating'
@@ -19,7 +20,7 @@ export default function FinishedSection({ items, loading, onEdit }: FinishedSect
   if (loading) {
     return (
       <div className="flex flex-col gap-px">
-        {[1, 2, 3, 4, 5].map(i => (
+        {Array.from({ length: 5 }).map((_, i) => (
           <div key={i} className="h-24 bg-surface animate-pulse" />
         ))}
       </div>
@@ -29,7 +30,7 @@ export default function FinishedSection({ items, loading, onEdit }: FinishedSect
   if (items.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center px-8 py-24 text-center gap-3">
-        <span className="text-5xl opacity-30">✓</span>
+        <CheckCheck size={48} className="opacity-20 text-ink" />
         <p className="text-ink-muted text-sm">Nothing finished yet.</p>
         <p className="text-ink-faint text-xs">Your completed list will show up here.</p>
       </div>
@@ -44,15 +45,11 @@ export default function FinishedSection({ items, loading, onEdit }: FinishedSect
       {finished.length > 0 && (
         <section>
           <div className="flex items-center gap-2 px-4 py-3 sticky top-[72px] bg-bg/90 backdrop-blur z-10">
-            <span className="text-xs font-bold uppercase tracking-widest text-ink-muted">
-              Finished
-            </span>
+            <span className="text-xs font-bold uppercase tracking-widest text-ink-muted">Finished</span>
             <span className="text-ink-faint text-xs">({finished.length})</span>
           </div>
           <div className="flex flex-col">
-            {finished.map(item => (
-              <FinishedRow key={item.id} item={item} onEdit={onEdit} />
-            ))}
+            {finished.map(item => <FinishedRow key={item.id} item={item} onEdit={onEdit} />)}
           </div>
         </section>
       )}
@@ -60,15 +57,11 @@ export default function FinishedSection({ items, loading, onEdit }: FinishedSect
       {dnf.length > 0 && (
         <section className="mt-4">
           <div className="flex items-center gap-2 px-4 py-3 sticky top-[72px] bg-bg/90 backdrop-blur z-10">
-            <span className="text-xs font-bold uppercase tracking-widest text-ink-muted">
-              Did Not Finish
-            </span>
+            <span className="text-xs font-bold uppercase tracking-widest text-ink-muted">Did Not Finish</span>
             <span className="text-ink-faint text-xs">({dnf.length})</span>
           </div>
           <div className="flex flex-col">
-            {dnf.map(item => (
-              <FinishedRow key={item.id} item={item} onEdit={onEdit} />
-            ))}
+            {dnf.map(item => <FinishedRow key={item.id} item={item} onEdit={onEdit} />)}
           </div>
         </section>
       )}
@@ -84,7 +77,6 @@ function FinishedRow({ item, onEdit }: { item: Item; onEdit: (item: Item) => voi
       onClick={() => onEdit(item)}
       className="flex gap-3 px-4 py-3 border-b border-border/50 hover:bg-surface/40 active:bg-surface/60 transition-colors text-left focus:outline-none"
     >
-      {/* Cover */}
       <div className="relative shrink-0 rounded-md overflow-hidden shadow-md" style={{ width: 44, height: 66 }}>
         <CoverImage item={item} fill />
         {isDNF && (
@@ -94,7 +86,6 @@ function FinishedRow({ item, onEdit }: { item: Item; onEdit: (item: Item) => voi
         )}
       </div>
 
-      {/* Info */}
       <div className="flex flex-col justify-center flex-1 min-w-0 gap-0.5">
         <div className="flex items-start justify-between gap-2">
           <p className={`font-serif text-base leading-tight line-clamp-1 ${isDNF ? 'text-ink-muted' : 'text-ink'}`}>
@@ -120,7 +111,7 @@ function FinishedRow({ item, onEdit }: { item: Item; onEdit: (item: Item) => voi
 
           {item.thoughts && (
             <p className="text-[11px] text-ink-muted italic line-clamp-1 flex-1">
-              "{item.thoughts}"
+              &ldquo;{item.thoughts}&rdquo;
             </p>
           )}
         </div>

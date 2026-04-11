@@ -239,10 +239,13 @@
   {
     "type": "book",
     "title": "The Correspondent",
-    "status": "reading",
+    "status": "finished",
     "creator": "Virginia Evans",
     "dateStarted": "2026-03-21",
-    "id": "659a0e4a-7e62-420b-9848-dc9cd1cf9ee0"
+    "id": "659a0e4a-7e62-420b-9848-dc9cd1cf9ee0",
+    "dateEnded": "2026-04-11",
+    "rating": 4,
+    "thoughts": "I bit cliche in the end with everyone (mostly everyone) getting their happy ending. But I love a clever book and this one is clever as all be. I cried at the end. "
   },
   {
     "type": "book",

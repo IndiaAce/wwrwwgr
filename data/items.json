@@ -187,10 +187,13 @@
   {
     "type": "tv",
     "title": "Euphoria S2",
-    "status": "watching",
+    "status": "finished",
     "platform": "Plex",
     "dateStarted": "2026-03-11",
-    "id": "882846d8-bdac-45a3-b361-83e0ff8b04fe"
+    "id": "882846d8-bdac-45a3-b361-83e0ff8b04fe",
+    "dateEnded": "2026-04-11",
+    "rating": 4,
+    "thoughts": "This show’s fucking wild lmao… but you have to love it "
   },
   {
     "type": "book",

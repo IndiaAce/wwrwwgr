@@ -257,5 +257,15 @@
     "creator": "Nick Bilton",
     "dateStarted": "2026-03-21",
     "id": "539e7250-5f2d-4e32-b5be-20da60bfe11a"
+  },
+  {
+    "type": "tv",
+    "title": "Euphoria S3",
+    "platform": "Plex",
+    "status": "tbr",
+    "coverUrl": "https://image.tmdb.org/t/p/w300/aJrG7OkoTMPWG5c8opz8a93AZPY.jpg",
+    "year": 2019,
+    "tmdbId": 85552,
+    "id": "6f79d61f-eb31-4cbf-9e77-93b9b76c0043"
   }
 ]

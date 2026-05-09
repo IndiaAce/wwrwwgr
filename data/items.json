@@ -253,10 +253,13 @@
   {
     "type": "book",
     "title": "Hatching Twitter",
-    "status": "reading",
+    "status": "finished",
     "creator": "Nick Bilton",
     "dateStarted": "2026-03-21",
-    "id": "539e7250-5f2d-4e32-b5be-20da60bfe11a"
+    "id": "539e7250-5f2d-4e32-b5be-20da60bfe11a",
+    "dateEnded": "2026-05-09",
+    "rating": 4,
+    "thoughts": "Pretty great! Super insightful there’s a bunch of stuff I didn’t even realize about the founding of twitter. Pretty interesting and eye opening! "
   },
   {
     "type": "tv",

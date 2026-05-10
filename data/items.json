@@ -135,9 +135,10 @@
   {
     "type": "book",
     "title": "A Feast for Crows (Please let TWOW come out soon)",
-    "status": "tbr",
+    "status": "reading",
     "creator": "George RR Martin",
-    "id": "2217964a-0c9e-4650-9685-82edc3ce278d"
+    "id": "2217964a-0c9e-4650-9685-82edc3ce278d",
+    "dateStarted": "2026-05-10"
   },
   {
     "type": "film",

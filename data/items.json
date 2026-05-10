@@ -259,11 +259,12 @@
     "type": "tv",
     "title": "Euphoria S3",
     "platform": "Plex",
-    "status": "tbr",
+    "status": "watching",
     "coverUrl": "https://image.tmdb.org/t/p/w300/aJrG7OkoTMPWG5c8opz8a93AZPY.jpg",
     "year": 2019,
     "tmdbId": 85552,
-    "id": "6f79d61f-eb31-4cbf-9e77-93b9b76c0043"
+    "id": "6f79d61f-eb31-4cbf-9e77-93b9b76c0043",
+    "dateStarted": "2026-04-19"
   },
   {
     "type": "book",

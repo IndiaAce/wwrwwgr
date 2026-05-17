@@ -199,10 +199,11 @@
   {
     "type": "book",
     "title": "Between Two Fires",
-    "status": "reading",
+    "status": "dnf",
     "creator": "Christopher Buehlman",
     "dateStarted": "2026-02-19",
-    "id": "fd792540-0011-42f9-9d1e-eafd1fc623d3"
+    "id": "fd792540-0011-42f9-9d1e-eafd1fc623d3",
+    "thoughts": "Despite my intrigue about the story this book just couldn’t quite keep me hooked. Maybe I’ll give it another go some time "
   },
   {
     "type": "book",

@@ -277,5 +277,16 @@
     "year": 1999,
     "openLibraryKey": "/works/OL2004765W",
     "id": "5ca3b089-a873-4f1f-aaff-a9e8af9e9d53"
+  },
+  {
+    "type": "book",
+    "title": "There Is No Antimemetics Division",
+    "creator": "qntm",
+    "status": "reading",
+    "dateStarted": "2026-05-17",
+    "coverUrl": "https://covers.openlibrary.org/b/id/11457905-M.jpg",
+    "year": 2008,
+    "openLibraryKey": "/works/OL24726867W",
+    "id": "c328e20b-8013-4afe-9919-30b9c7f2a79f"
   }
 ]
